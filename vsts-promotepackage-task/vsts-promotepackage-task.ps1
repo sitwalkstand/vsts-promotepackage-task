@@ -6,9 +6,9 @@ $packageId = Get-VstsInput -Name definition
 $packageVersion =Get-VstsInput -Name version
 $releaseView =Get-VstsInput -Name releaseView
 
-$account = ($env:SYSTEM_TEAMFOUNDATIONSERVERURI -replace "https://(.*)\.visualstudio\.com/", '$1').split('.')[0]
-$basepackageurl = ("https://{0}.pkgs.visualstudio.com/DefaultCollection/_apis/packaging/feeds" -f $account)
-$basefeedsurl = ("https://{0}.feeds.visualstudio.com/DefaultCollection/_apis/packaging/feeds" -f $account)
+$account = ($env:SYSTEM_TEAMFOUNDATIONSERVERURI -replace "https://dev\.azure\.com/(.*)", '$1').split('.')[0]
+$basepackageurl = ("https://feeds.dev.azure.com/{0}/_apis/packaging/feeds" -f $account)
+$basefeedsurl = ("https://feeds.dev.azure.com/{0}/_apis/packaging/feeds" -f $account)
 
 function InitializeRestHeaders()
 {
